@@ -399,6 +399,11 @@ h1 {
   margin-top: -100px;
 }
 
+.line_light.left,
+.line_light.right {
+  background: linear-gradient(90deg, rgba(163, 131, 101, 0) 0%, #9B8775 49.56%, rgba(163, 131, 101, 0) 100%);
+}
+
 .line_light::after {
   content: '';
   display: block;
@@ -476,7 +481,6 @@ h1 {
 .main_flex_collection_btn {
   width: 264px;
   height: 88px;
-  background: linear-gradient(90deg, #FFCDA0 0%, #EB6F02 100%);
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -492,15 +496,24 @@ h1 {
 }
 
 .main_flex_collection_btn:hover {
-  background: linear-gradient(90deg, #FFFFFF 0%, #FFB778 100%);
   color: rgba(255, 120, 1, 1);
 }
 
-.main_flex_collection_btn:hover::after {
+.button_orange {
+  background: linear-gradient(90deg, #FFCDA0 0%, #EB6F02 100%);
+  transition: .6s;
+  position: relative;
+}
+
+.button_orange:hover {
+  background: linear-gradient(90deg, #FFFFFF 0%, #FFB778 100%);
+}
+
+.button_orange:hover::after {
   background: linear-gradient(90deg, #FF7801 0%, rgba(255, 120, 1, 0.5) 100%);
 }
 
-.main_flex_collection_btn::after {
+.button_orange::after {
   content: '';
   position: absolute;
   background: linear-gradient(90deg, #FFFFFF 0%, rgba(235, 111, 2, 1) 100%);
@@ -511,7 +524,6 @@ h1 {
   display: block;
   border-radius: 12px;
   z-index: -1;
-
 }
 
 .main_flex_collection {
@@ -608,13 +620,20 @@ h1 {
   color: rgba(255, 120, 1, 1);
   margin-right: 8px;
   display: block;
+  transition: .6s;
+}
+
+.main_more:hover span {
+  color: #fff;
 }
 
 footer {
   margin: 80px auto 40px auto;
   max-width: 744px;
   width: 100%;
+
 }
+
 
 .footer {
   width: 100%;
@@ -626,6 +645,33 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 0 96px;
+  position: relative;
+}
+
+.footer::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(124, 139, 154, 0) 0%, rgba(124, 139, 154, 1) 50%, rgba(124, 139, 154, 0) 100%);
+  transition: .6s;
+  z-index: 1;
+}
+
+.footer::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(124, 139, 154, 0) 0%, rgba(124, 139, 154, 1) 50%, rgba(124, 139, 154, 0) 100%);
+  transition: .6s;
+  z-index: 1;
 }
 
 .footer a {
