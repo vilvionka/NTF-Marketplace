@@ -229,11 +229,87 @@ h1 {
   backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
   justify-content: center;
   height: 40px;
   border-radius: 12px;
   border: 1px solid rgba(124, 139, 154, 0.2);
+  position: relative;
+  transition: .6s;
+}
+
+.header_btn_left a:hover,
+.header_btn_right_box a:hover {
+  border: 1px solid rgba(255, 120, 1, 0.2);
+}
+
+.header_btn_box {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.header_btn_box::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(124, 139, 154, 0) 0%, rgba(124, 139, 154, 1) 50%, rgba(124, 139, 154, 0) 100%);
+  transition: .6s;
+}
+
+.header_btn_box:hover::after,
+.header_btn_box:hover::before {
+  background: linear-gradient(90deg, rgba(255, 120, 1, 0) 0%, rgba(255, 120, 1, 1) 50%, rgba(255, 120, 1, 0) 100%);
+}
+
+.header_btn_left a:hover::after,
+.header_btn_right_box a:hover::after,
+.header_btn_left a:hover::before,
+.header_btn_right_box a:hover::before {
+  background: linear-gradient(180deg, rgba(255, 120, 1, 0) 0%, rgba(255, 120, 1, 1) 50%, rgba(255, 120, 1, 0) 100%);
+}
+
+.header_btn_box::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(124, 139, 154, 0) 0%, rgba(124, 139, 154, 1) 50%, rgba(124, 139, 154, 0) 100%);
+  z-index: 2;
+  transition: .6s;
+}
+
+.header_btn_left a::after,
+.header_btn_right_box a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 20%;
+  left: 0%;
+  width: 1px;
+  height: 60%;
+  background: linear-gradient(180deg, rgba(124, 139, 204, 0) 0%, #7C8B9A 50%, rgba(124, 139, 154, 0) 100%);
+  transition: .6s;
+}
+
+.header_btn_left a::before,
+.header_btn_right_box a::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 20%;
+  right: 0%;
+  width: 1px;
+  height: 60%;
+  background: linear-gradient(180deg, rgba(124, 139, 154, 0) 0%, #7C8B9A 50%, rgba(124, 139, 154, 0) 100%);
+  transition: .6s;
 }
 
 .header_btn_left a span,
@@ -276,6 +352,40 @@ h1 {
   border: 1px solid rgba(124, 139, 154, 0.2);
   flex-shrink: 0;
   margin-right: 8px;
+  transition: .6s;
+  position: relative;
+  overflow: hidden;
+}
+
+.header_btn_right_user::after {
+  border-top: 1px solid rgba(124, 139, 154, 1);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 103%;
+  height: 100%;
+  border-radius: 50%;
+  transition: .6s;
+}
+
+.header_btn_right_user::before {
+  border-bottom: 1px solid rgba(124, 139, 154, 1);
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 103%;
+  height: 100%;
+  border-radius: 50%;
+  transition: .6s;
+}
+
+.header_btn_right_user:hover::after,
+.header_btn_right_user:hover::before {
+  border-color: #EB6F02;
 }
 
 .line_light {
@@ -284,7 +394,8 @@ h1 {
   background: linear-gradient(90deg, rgba(72, 73, 74, 0) 0%, rgba(72, 73, 74, 0) 0%, #48494A 50.23%, rgba(72, 73, 74, 0) 100%);
   position: relative;
 }
-.line_light.top{
+
+.line_light.top {
   margin-top: -100px;
 }
 
@@ -377,6 +488,16 @@ h1 {
   color: #fff;
   margin-bottom: 24px;
   position: relative;
+  transition: .6s;
+}
+
+.main_flex_collection_btn:hover {
+  background: linear-gradient(90deg, #FFFFFF 0%, #FFB778 100%);
+  color: rgba(255, 120, 1, 1);
+}
+
+.main_flex_collection_btn:hover::after {
+  background: linear-gradient(90deg, #FF7801 0%, rgba(255, 120, 1, 0.5) 100%);
 }
 
 .main_flex_collection_btn::after {
@@ -415,10 +536,19 @@ h1 {
   background-size: cover;
   z-index: 1;
   position: relative;
+  transition: .6s;
+}
+
+.main_flex_collection_item:hover {
+  background-image: url(../img/icon/ugl_hover.png);
+}
+
+.main_flex_collection_item:hover span {
+  color: #EB6F02;
 }
 
 .main_flex_collection_item_wrap {
-  width: 264px;
+  width: 262px;
   height: 184px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(16px);
@@ -438,6 +568,7 @@ h1 {
   color: #fff;
   margin-top: 16px;
   display: block;
+  transition: .6s;
 }
 
 .main_flex_collection_item_wrap p {
@@ -454,7 +585,19 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   margin-bottom: 52px;
+  transition: .6s;
+  width: 200px;
+
+}
+
+.main_more img {
+  transition: .6s;
+}
+
+.main_more:hover img {
+  transform: translateX(10px);
 }
 
 .main_more span {
@@ -494,7 +637,17 @@ footer {
   height: 32px;
   background: linear-gradient(90deg, #FFCDA0 0%, #EB6F02 100%);
   position: relative;
+  transition: .6s;
 }
+
+.footer a:hover {
+  background: linear-gradient(90deg, #FFFFFF 0%, #FFB778 100%);
+}
+
+.footer a:hover::after {
+  background: linear-gradient(90deg, #FF7801 0%, rgba(255, 120, 1, 0.5) 100%);
+}
+
 
 .footer a::after {
   content: '';
@@ -510,6 +663,10 @@ footer {
   display: none;
 }
 
+.footer a:hover span {
+  color: rgba(255, 120, 1, 1);
+}
+
 .footer a span {
   font-size: 16px;
   font-weight: 400;
@@ -519,6 +676,7 @@ footer {
   margin-left: 8px;
   display: block;
   color: #fff;
+  transition: .6s;
 }
 
 .addition {
@@ -550,33 +708,56 @@ footer {
 .addition.top i {
   top: -50px;
 }
-.main_flex_rune{
+
+.main_flex_rune {
   width: 600px;
   height: 1600px;
-  
 }
-.main_flex_rune::after{
-  background-image: url(../img/icon/main_light.png);
+
+.main_flex_rune_item {
+  width: 240px;
+  height: 240px;
+}
+
+.main_flex_rune_item span {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 40px;
+  text-align: center;
+  position: absolute;
+  bottom: -20px;
+  left: 0px;
+  display: block;
+  width: 240px;
+  letter-spacing: -0.5px;
+}
+
+.main_flex_rune::after {
+  background-image: url(../img/icon/main_light2.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   position: absolute;
   content: '';
   width: 100%;
-  height: 1600px;
+  height: 1616px;
   display: block;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  pointer-events: none;
 }
-.main_flex_rune_first{
+
+.main_flex_rune_first {
   position: absolute;
-  top: 450px;
-  left: calc(50% - 190px)
+  top: 440px;
+  left: calc(50% - 230px)
 }
-.main_flex_rune_first .big{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_first .big {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/1/1.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -587,9 +768,10 @@ footer {
   animation: anim 2.4s linear infinite;
   z-index: 3;
 }
-.main_flex_rune_first .middle{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_first .middle {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/1/2.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -600,9 +782,10 @@ footer {
   animation: anim1 3.4s linear infinite .5s;
   z-index: 2;
 }
-.main_flex_rune_first .small{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_first .small {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/1/3.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -613,11 +796,13 @@ footer {
   animation: anim2 2.8s linear infinite;
   z-index: 1;
 }
+
 @keyframes anim {
   0% {
     top: 0px;
   }
-  50%{
+
+  50% {
     top: 8px;
   }
 
@@ -630,7 +815,8 @@ footer {
   0% {
     top: 0px;
   }
-  50%{
+
+  50% {
     top: 15px;
   }
 
@@ -644,7 +830,8 @@ footer {
     top: 0px;
     transform: scale(1);
   }
-  50%{
+
+  50% {
     top: 8px;
     transform: scale(1.02);
   }
@@ -654,14 +841,16 @@ footer {
     transform: scale(1);
   }
 }
-.main_flex_rune_second{
+
+.main_flex_rune_second {
   position: absolute;
-  top: 700px;
+  top: 1190px;
   left: calc(50% + 10px)
 }
-.main_flex_rune_second .big{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_second .big {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/2/sale1.png);
   animation: anim 2.4s linear infinite .7s;
   background-repeat: no-repeat;
@@ -671,9 +860,10 @@ footer {
   top: 0;
   left: 0;
 }
-.main_flex_rune_second .middle{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_second .middle {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/2/sale2.png);
   animation: anim1 3.4s linear infinite .9s;
   background-repeat: no-repeat;
@@ -683,9 +873,10 @@ footer {
   top: 0;
   left: 0;
 }
-.main_flex_rune_second .small{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_second .small {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/2/sale3.png);
   animation: anim2 2.8s linear infinite .3s;
   background-repeat: no-repeat;
@@ -695,14 +886,16 @@ footer {
   top: 0;
   left: 0;
 }
-.main_flex_rune_third{
+
+.main_flex_rune_third {
   position: absolute;
-  top: 950px;
-  left: calc(50% - 190px)
+  top: 660px;
+  left: calc(50% - 10px)
 }
-.main_flex_rune_third .big{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_third .big {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/3/symbol1.png);
   animation: anim 2.4s linear infinite .2s;
   background-repeat: no-repeat;
@@ -712,9 +905,10 @@ footer {
   top: 0;
   left: 0;
 }
-.main_flex_rune_third .middle{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_third .middle {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/3/symbol2.png);
   animation: anim1 3.4s linear infinite .5s;
   background-repeat: no-repeat;
@@ -724,9 +918,10 @@ footer {
   top: 0;
   left: 0;
 }
-.main_flex_rune_third .small{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_third .small {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/3/symbol3.png);
   animation: anim2 2.8s linear infinite .9s;
   background-repeat: no-repeat;
@@ -737,14 +932,15 @@ footer {
   left: 0;
 }
 
-.main_flex_rune_fourth{
+.main_flex_rune_fourth {
   position: absolute;
-  top: 1200px;
-  left: calc(50% - 10px)
+  top: 900px;
+  left: calc(50% - 230px)
 }
-.main_flex_rune_fourth .big{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_fourth .big {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/4/time1.png);
   animation: anim 2.4s linear infinite .1s;
   background-repeat: no-repeat;
@@ -754,9 +950,10 @@ footer {
   top: 0;
   left: 0;
 }
-.main_flex_rune_fourth .middle{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_fourth .middle {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/4/time2.png);
   animation: anim1 3.4s linear infinite .7s;
   background-repeat: no-repeat;
@@ -766,9 +963,10 @@ footer {
   top: 0;
   left: 0;
 }
-.main_flex_rune_fourth .small{
-  width: 180px;
-  height: 180px;
+
+.main_flex_rune_fourth .small {
+  width: 240px;
+  height: 240px;
   background-image: url(../img/img/rune/4/time3.png);
   animation: anim2 2.8s linear infinite .4s;
   background-repeat: no-repeat;
@@ -777,4 +975,583 @@ footer {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media (max-width: 1270px) {
+  .container {
+    max-width: none;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .main_flex_rune::after {
+    height: 1500px;
+  }
+
+  .main_flex_rune_second {
+    top: 1150px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .main_flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -100px;
+    position: relative;
+    padding-bottom: 344px;
+  }
+
+  .main_flex_rune {
+    width: 100%;
+    height: 1600px;
+    order: 1;
+  }
+
+  .main_flex_collection {
+    order: 2;
+
+  }
+
+  .header_border {
+    display: none;
+  }
+
+  .main_flex_collection_item.absolute {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  h1 {
+    font-size: 88px;
+    line-height: 88px;
+  }
+
+  .header_btn_headling p {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.25em;
+  }
+
+  .main h2 {
+    font-size: 54px;
+    line-height: 98px;
+    margin-top: 50px;
+  }
+
+  .main h3 {
+    font-size: 30px;
+    line-height: 68px;
+    margin-top: 47px;
+  }
+
+  .main_more span {
+    font-size: 16px;
+    line-height: 16px;
+    margin-right: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .main_flex {
+    margin-top: -70px;
+  }
+
+  .main_flex_rune::after,
+  .main_flex_rune {
+    height: 1300px;
+  }
+
+  .main_flex_rune_item,
+  .main_flex_rune_item .big,
+  .main_flex_rune_item .middle,
+  .main_flex_rune_item .small {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .main_flex_rune_item span {
+    font-size: 30px;
+    line-height: 100%;
+    bottom: -15px;
+    left: 0px;
+    width: 180px;
+  }
+
+  .main_flex_rune_first {
+    top: 340px;
+  }
+
+  .main_flex_rune_third {
+    top: 560px;
+  }
+
+  .main_flex_rune_fourth {
+    top: 780px;
+  }
+
+  .main_flex_rune_second {
+    top: 1000px;
+  }
+
+  .main_flex_collection {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .header_btn {
+    margin: 20px 0 0px 0;
+    justify-content: center;
+    position: relative;
+  }
+
+  .header_btn_left,
+  .header_btn_right {
+    position: absolute;
+    bottom: -150px;
+  }
+
+  .header_btn_left {
+    left: 0;
+  }
+
+  .header_btn_right {
+    right: 0;
+  }
+
+  section.main {
+    padding-top: 100px;
+  }
+
+  .main h2 {
+    font-size: 40px;
+    line-height: 78px;
+    margin-top: 50px;
+  }
+
+  .main_flex_rune_first {
+    top: 340px;
+  }
+
+  .main_flex_rune_third {
+    top: 500px;
+  }
+
+  .main_flex_rune_fourth {
+    top: 660px;
+  }
+
+  .main_flex_rune_second {
+    top: 820px;
+  }
+
+  footer {
+    margin: 60px auto 30px auto;
+    max-width: none;
+    width: auto;
+    padding: 0 20px;
+  }
+
+  .footer {
+    padding: 0 36px;
+  }
+}
+
+@media (max-width: 650px) {
+  h1 {
+    font-size: 64px;
+    line-height: 64px;
+  }
+
+  .header_btn_headling p {
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 0.10em;
+  }
+
+  .header_btn_left,
+  .header_btn_right {
+    max-width: none;
+    width: calc(50% - 4px);
+    height: 72px;
+  }
+
+  .header_btn_box {
+    height: 32px;
+  }
+
+  .header_btn_left a,
+  .header_btn_right_box a {
+    height: 32px;
+  }
+
+  .header_btn_left,
+  .header_btn_right {
+    bottom: -130px;
+  }
+
+  .header_btn_right_user {
+    width: 32px;
+    height: 32px;
+    margin-right: 0px;
+    position: absolute;
+    top: -2px;
+  }
+
+  .header_btn_right_user img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .header_btn_right .header_btn_box {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .header_btn_right .header_btn_box:nth-child(1) .header_btn_item {
+    width: calc(100% - 40px);
+  }
+
+  .header_btn_left a span,
+  .header_btn_right_box a span {
+    font-size: 14px;
+    line-height: 100%;
+  }
+
+  .main_flex_rune::after,
+  .main_flex_rune {
+    height: 1000px;
+  }
+
+  .main_flex_rune_item,
+  .main_flex_rune_item .big,
+  .main_flex_rune_item .middle,
+  .main_flex_rune_item .small {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .main_flex_rune_first {
+    top: 280px;
+    left: calc(50% - 180px);
+  }
+
+  .main_flex_rune_third {
+    top: 420px;
+    left: calc(50% + 60px);
+  }
+
+  .main_flex_rune_fourth {
+    top: 560px;
+    left: calc(50% - 180px);
+  }
+
+  .main_flex_rune_second {
+    top: 720px;
+    left: calc(50% + 60px);
+  }
+
+  .main_flex_collection {
+    width: calc(50% - 10px);
+  }
+
+  .main_flex_collection_btn {
+    width: 100%;
+    height: 48px;
+    font-size: 16px;
+    line-height: 100%;
+    margin-bottom: 0px;
+  }
+
+  .addition {
+    width: 100%;
+  }
+
+  .main_flex_collection_item_wrap {
+    width: calc(100% - 35px);
+    height: 144px;
+  }
+
+  .main_flex_collection_item_wrap img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .main_flex_collection_item_wrap span {
+    font-size: 16px;
+    line-height: 100%;
+    margin-top: 10px;
+  }
+
+  .main_flex_collection_item_wrap p {
+    margin-top: 4px;
+    font-size: 10px;
+    line-height: 100%;
+  }
+
+  .main_flex_collection_item {
+    width: 100%;
+    margin-top: 42px;
+    height: 144px;
+  }
+
+  .main_flex {
+    padding-bottom: 244px;
+  }
+
+  .footer {
+    padding: 0 20px;
+  }
+
+  .footer a {
+    width: 138px;
+    height: 32px;
+  }
+
+  .footer a span {
+    font-size: 14px;
+    line-height: 100%;
+    margin-left: 4px;
+  }
+
+  .main h3 {
+    font-size: 25px;
+    line-height: 68px;
+    margin-top: 37px;
+  }
+
+  .main_flex_rune_item span {
+    font-size: 20px;
+    bottom: -10px;
+    left: 0px;
+    width: 120px;
+  }
+
+  .header_btn_box::after,
+  .header_btn_box::before {
+    left: calc(40px + 10%);
+    width: calc(80% - 40px);
+  }
+}
+
+@media (max-width: 500px) {
+
+  .main_flex_rune::after,
+  .main_flex_rune {
+    height: 750px;
+  }
+
+  .main_flex_rune_item,
+  .main_flex_rune_item .big,
+  .main_flex_rune_item .middle,
+  .main_flex_rune_item .small {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .main_flex_rune_item span {
+    font-size: 18px;
+    width: 100px;
+  }
+
+  .main_flex_rune_first {
+    top: 200px;
+    left: calc(50% - 150px);
+  }
+
+  .main_flex_rune_third {
+    top: 310px;
+    left: calc(50% + 50px);
+  }
+
+  .main_flex_rune_fourth {
+    top: 420px;
+    left: calc(50% - 150px);
+  }
+
+  .main_flex_rune_second {
+    top: 540px;
+    left: calc(50% + 50px);
+  }
+
+  .footer {
+    padding: 20px 20px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .footer a {
+    margin: 4px 0;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .main_flex_rune_item,
+  .main_flex_rune_item .big,
+  .main_flex_rune_item .middle,
+  .main_flex_rune_item .small {
+    width: 90px !important;
+    height: 90px !important;
+  }
+
+  .main_flex_rune_item span {
+    font-size: 16px;
+    width: 90px;
+    bottom: -15px;
+  }
+
+  .main_flex_rune::after,
+  .main_flex_rune {
+    height: 650px;
+  }
+
+  .main_flex_rune_first {
+    top: 170px;
+    left: calc(50% - 150px);
+  }
+
+  .main_flex_rune_third {
+    top: 270px;
+    left: calc(50% + 50px);
+  }
+
+  .main_flex_rune_fourth {
+    top: 370px;
+    left: calc(50% - 150px);
+  }
+
+  .main_flex_rune_second {
+    top: 480px;
+    left: calc(50% + 50px);
+  }
+
+  .main_flex_collection_item_wrap {
+    width: calc(100% - 5px);
+    height: 100px;
+  }
+
+  .main_flex_collection_item {
+    height: 100px;
+  }
+
+  .main_flex {
+    padding-bottom: 204px;
+  }
+
+  footer {
+    margin: 30px auto 30px auto;
+  }
+
+  .footer a {
+    width: 100%;
+  }
+
+  .main_more {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 385px) {
+
+  .main_flex_rune::after,
+  .main_flex_rune {
+    height: 600px;
+  }
+
+  .main_flex_rune_first {
+    top: 150px;
+    left: calc(50% - 150px);
+  }
+
+  .main_flex_rune_third {
+    top: 240px;
+    left: calc(50% + 50px);
+  }
+
+  .main_flex_rune_fourth {
+    top: 330px;
+    left: calc(50% - 150px);
+  }
+
+  .main_flex_rune_second {
+    top: 420px;
+    left: calc(50% + 50px);
+  }
+
+  .main_flex_collection_item_wrap {
+    width: calc(100% - 5px);
+    height: 100px;
+  }
+
+  .main_flex_collection_item {
+    height: 100px;
+  }
+}
+
+@media (max-width: 325px) {
+
+  .main_flex_rune_item,
+  .main_flex_rune_item .big,
+  .main_flex_rune_item .middle,
+  .main_flex_rune_item .small {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .main_flex_rune_item span {
+    font-size: 14px;
+    width: 80px;
+    bottom: -15px;
+  }
+
+  .main_flex_rune::after,
+  .main_flex_rune {
+    height: 500px;
+  }
+
+  .main_flex_rune_first {
+    top: 140px;
+    left: calc(50% - 120px);
+  }
+
+  .main_flex_rune_third {
+    top: 190px;
+    left: calc(50% + 40px);
+  }
+
+  .main_flex_rune_fourth {
+    top: 260px;
+    left: calc(50% - 120px);
+  }
+
+  .main_flex_rune_second {
+    top: 330px;
+    left: calc(50% + 40px);
+  }
+
+  .main_flex_collection_item_wrap {
+    width: calc(100% - 5px);
+    height: 80px;
+  }
+
+  .main_flex_collection_item {
+    height: 80px;
+  }
+
+  .main_flex {
+    padding-bottom: 164px;
+  }
+
+  .main_flex_collection_item.absolute {
+    bottom: 40px;
+  }
+
+  .main_flex_collection_btn {
+    font-size: 14px;
+  }
+
 }
