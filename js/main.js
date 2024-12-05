@@ -15,7 +15,7 @@
       box.classList.add('active');
       box.style.top = this.getBoundingClientRect().top + window.pageYOffset + 'px';
       box.style.left = this.getBoundingClientRect().left + 'px';
-      if(window.innerWidth < 500 ){
+      if(document.documentElement.clientWidth < 500 ){
         box.style.left = '20px';
       }
     })
