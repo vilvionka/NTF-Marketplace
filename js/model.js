@@ -66,7 +66,7 @@ function init() {
   // model
 
   const loader = new GLTFLoader();
-  loader.load('./model/diamond.glb', (gltf) => {
+  loader.load('model/diamond.glb', (gltf) => {
     model = gltf.scene
     model.scale.set(60, 30, 30);
     model.position.x = 0;
