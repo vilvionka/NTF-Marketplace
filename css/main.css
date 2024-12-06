@@ -726,6 +726,39 @@ footer {
 .footer a:hover::after {
   background: linear-gradient(90deg, #FF7801 0%, rgba(255, 120, 1, 0.5) 100%);
 }
+.footer a i{
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  transition: .6s;
+}
+
+.footer a.one i {
+  background-image: url(../img/icon/telegram.svg);
+}
+
+.footer a.too i {
+  background-image: url(../img/icon/twitter.svg);
+}
+
+.footer a.free i {
+  background-image: url(../img/icon/whats_app.svg);
+}
+
+.footer a.one:hover i {
+  background-image: url(../img/icon/telegram_hover.svg);
+}
+
+.footer a.too:hover i {
+  background-image: url(../img/icon/twitter_hover.svg);
+}
+
+.footer a.free:hover i {
+  background-image: url(../img/icon/whats_app_hover.svg);
+}
 
 
 .footer a::after {
@@ -1117,6 +1150,12 @@ footer {
   font-weight: 300;
   line-height: 20px;
 }
+.main_link{
+  transition: .6s;
+}
+.main_link:hover h2{
+  color: #EB6F02;
+}
 
 @media (max-width: 1270px) {
   .container {
@@ -1166,9 +1205,7 @@ footer {
 
   }
 
-  .header_border {
-    display: none;
-  }
+
 
   .main_flex_collection_item.absolute {
     position: absolute;
@@ -1192,6 +1229,7 @@ footer {
     font-size: 54px;
     line-height: 98px;
     margin-top: 50px;
+    transition: .6s;
   }
 
   .main h3 {
@@ -1564,6 +1602,33 @@ footer {
     font-size: 12px;
     line-height: 17px;
   }
+
+  .header {
+    height: 42px;
+    border-radius: 12px;
+    margin-top: 12px;
+    backdrop-filter: blur(12px);
+  }
+
+  .header_flex {
+    height: 42px;
+  }
+
+  .header_flex_item span {
+    color: #fff;
+    font-size: 12px;
+    margin-left: 3px;
+    width: auto;
+  }
+
+  .header_flex_line {
+    width: 30px;
+    margin: 0 3px;
+  }
+  .footer a i{
+    width: 16px;
+    height: 16px;
+  }
 }
 
 @media (max-width: 425px) {
@@ -1685,6 +1750,7 @@ footer {
   .main_flex_collection_item {
     height: 100px;
   }
+
   .explanation {
     width: calc(100% - 40px);
     margin-left: 0px;
