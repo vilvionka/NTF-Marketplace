@@ -66,9 +66,9 @@ function init() {
   // model
 
   const loader = new GLTFLoader();
-  loader.load('/model/diamond.glb', (gltf) => {
+  loader.load('../model/diamond.glb', (gltf) => {
     model = gltf.scene
-    model.scale.set(50, 30, 30);
+    model.scale.set(60, 30, 30);
     model.position.x = 0;
     model.position.y = 0;
     scene.add(model);
@@ -127,7 +127,7 @@ function render() {
     model.scale.set(13, 14, 5)
   }
   if(document.documentElement.clientWidth < 425 && model != null){
-    model.scale.set(10, 12, 5)
+    model.scale.set(7, 12, 5)
   }
 
 }
