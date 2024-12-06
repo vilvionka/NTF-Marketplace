@@ -147,13 +147,17 @@
   <section class="main">
     <div class="container">
       <div class="addition">
-        <i class="foo" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ">i</i>
-        <a href="#" class="main_link"><h2>Utility collection</h2></a>
+        <i class="foo"
+          data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ">i</i>
+        <a href="#" class="main_link">
+          <h2>Utility collection</h2>
+        </a>
       </div>
       <div class="main_flex">
         <div class="main_flex_collection">
           <div class="addition top">
-            <i class="free" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ">i</i>
+            <i class="free"
+              data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ">i</i>
             <div class="main_flex_collection_btn button_orange">Standard Collection</div>
           </div>
           <a href="#" class="main_flex_collection_item">
@@ -176,6 +180,9 @@
           </a>
         </div>
         <div class="main_flex_rune">
+          <div class="main_model">
+
+          </div>
           <a href="#" class="main_flex_rune_first main_flex_rune_item">
             <div class="small"></div>
             <div class="middle"></div>
@@ -203,7 +210,8 @@
         </div>
         <div class="main_flex_collection">
           <div class="addition top">
-            <i class="one" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ">i</i>
+            <i class="one"
+              data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ">i</i>
             <div class="main_flex_collection_btn button_orange">Launchpad collection</div>
           </div>
           <a href="#" class="main_flex_collection_item">
@@ -223,7 +231,8 @@
       </div>
       <div class="line_light right"></div>
       <div class="addition">
-        <i class="too" data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ">i</i>
+        <i class="too"
+          data-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ">i</i>
         <h3>Creative workshop</h3>
       </div>
       <a href="#" class="main_more">
@@ -256,6 +265,17 @@
   </footer>
 
   <script src="./js/main.js"></script>
+  <script type="importmap">
+    {
+        "imports": {
+          "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/",
+        "@monogrid/gainmap-js": "https://unpkg.com/@monogrid/gainmap-js@3.0.0/dist/decode.js"
+      }
+    }
+  </script>
+
+  <script type="module" src="./js/model.js"></script>
 </body>
 
 </html>
