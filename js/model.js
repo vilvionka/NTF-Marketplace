@@ -116,7 +116,7 @@ function render() {
   pointLight.position.x = 2000 * Math.cos(r);
   pointLight.position.z = 2000 * Math.sin(r);
 
-  model.rotation.y -= 0.002;
+  model.rotation.y -= 0.006;
   r += 0.01;
 
   renderer.render(scene, camera);
