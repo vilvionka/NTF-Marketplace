@@ -885,6 +885,7 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
+  pointer-events: none;
 }
 
 .main_flex_rune_first {
@@ -1169,6 +1170,8 @@ footer {
 
 .main_link {
   transition: .6s;
+  position: relative;
+  z-index: 5;
 }
 
 .main_link:hover h2 {
