@@ -1,3 +1,4 @@
+// i animation hidden and visible pop
 (() => {
 
   let one = document.querySelector('.addition i.one');
@@ -43,12 +44,12 @@
 
 })();
 
+// focus and blur input
 (() => {
   let inp = document.querySelectorAll('.js_catalog_header_form_box_input');
   if (inp) {
     for (let i = 0; i < inp.length; i++) {
       inp[i].addEventListener('focus', function () {
-        console.log(this.closest('.js_catalog_header_form_box'));
         this.closest('.js_catalog_header_form_box').classList.add('active');
       });
       inp[i].addEventListener('blur', function () {
@@ -56,6 +57,125 @@
       });
     }
   }
+})();
+
+// active box checkbox filter (checked)
+(() => {
+  let checkBox = document.querySelectorAll('.js_checkbox_catalog');
+
+  if (checkBox) {
+    for (let i = 0; i < checkBox.length; i++) {
+      checkBox[i].addEventListener('click', function () {
+        if (this.checked) {
+          this.closest('.js_border_top').classList.add('active');
+          this.closest('.js_border_left').classList.add('active');
+        } else {
+          this.closest('.js_border_top').classList.remove('active');
+          this.closest('.js_border_left').classList.remove('active');
+        }
+      });
+
+    }
+  }
+})();
+
+//move pop card catalog NFT
+(() => {
+  let moveBox = document.querySelector('.js_move_pop');
+  let moveBtns = document.querySelectorAll('.js_catalog_move');
+  let close = document.querySelector('.js_pove_pop_item_close');
+
+  for (let i = 0; i < moveBtns.length; i++) {
+    if (moveBtns) {
+      moveBtns[i].addEventListener('click', function () {
+        moveBox.classList.add('active');
+      })
+    }
+  }
+  if (close) {
+    close.addEventListener('click', function () {
+      moveBox.classList.remove('active');
+    })
+  }
+})();
+
+// filter animation desctop
+(() => {
+  let filterBtn = document.querySelector('.js_catalog_control_filter');
+  let filterBox = document.querySelector('.js_catalog_box_filter');
+  let boxGeneral = document.querySelector('.js_catalog_box');
+  let filterMobile = document.querySelector('.js_pop_filter')
+  let filterBoxMobile = document.querySelector('.js_catalog_box_filter_mobile')
+
+  if (filterBtn) {
+    filterBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      boxGeneral.classList.toggle('filter');
+      filterBox.classList.toggle('hidden');
+      filterMobile.classList.add('active')
+    })
 
 
+    filterMobile.addEventListener('click', (e) => {
+      const lkEl = e.composedPath().includes(filterBoxMobile);
+      if (!lkEl) {
+        filterMobile.classList.remove('active');
+      }
+    })
+  }
+})();
+
+
+// burger animation 
+(() => {
+  let burgerBtn = document.querySelector('.js_catalog_header_burger');
+  let menuBox = document.querySelector('.js_menu_pop');
+
+  if (burgerBtn) {
+    burgerBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      menuBox.classList.toggle('active');
+    })
+  }
+})();
+
+
+// search animation mobile
+(() => {
+  let searchBtn = document.querySelector('.js_catalog_header_search');
+  let searchBox = document.querySelector('.js_search_pop');
+  let searchClose = document.querySelector('.js_search_pop_close')
+
+  if (searchBtn) {
+    searchBtn.addEventListener('click', function () {
+      searchBox.classList.add('active');
+    })
+    searchClose.addEventListener('click', function () {
+      searchBox.classList.remove('active');
+    })
+  }
+})();
+
+// sort animation 
+(() => {
+  let sortBtn = document.querySelector('.js_catalog_control_add');
+  let sortBox = document.querySelector('.js_catalog_control_add_sort');
+
+
+  if (sortBtn) {
+    sortBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      sortBox.classList.toggle('active');
+    })
+  }
+  document.addEventListener('click', (e) => {
+    const lkEl = e.composedPath().includes(sortBtn);
+    const gambLk1 = e.composedPath().includes(sortBox);
+    if (sortBtn) {
+      if (!lkEl && !gambLk1) {
+        sortBox.classList.remove('active');
+        sortBtn.classList.remove('active');
+      }
+    }
+  })
 })();
