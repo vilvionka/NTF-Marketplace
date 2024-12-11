@@ -1855,9 +1855,35 @@ section.catalog {
   width: 100%;
 }
 
+.catalog_box.filter.noresize {
+  padding-left: 0px;
+  width: 100%;
+}
+
+.noresize .catalog_box_filter {
+  background: #000000B8;
+  backdrop-filter: blur(24px);
+  border-radius: 12px;
+  padding: 24px 16px;
+  z-index: 7;
+}
+
+.noresize .catalog_box_filter_body_submit {
+  max-width: 264px;
+  width: 100%;
+}
+
 .catalog_box_wrap {
   width: calc(100%/3);
   margin-right: 24px;
+}
+
+.catalog_box.filter.noresize .catalog_box_wrap {
+  width: calc(100%/4);
+}
+
+.catalog_box.noresize .catalog_box_wrap {
+  width: calc(100%/4);
 }
 
 .catalog_box .catalog_box_wrap.last {
