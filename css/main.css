@@ -2467,7 +2467,8 @@ footer.catalog {
   opacity: 0;
 }
 
-.catalog_box_filter_body_check_checkbox label {
+.catalog_box_filter_body_check_checkbox label,
+.catalog_box_filter_body_el_checkbox.checkbox label {
   width: 16px;
   height: 16px;
   border: 1px solid #7C8B9A;
@@ -2528,7 +2529,8 @@ footer.catalog {
   color: #FF7801;
 }
 
-.catalog_box_filter_body_check_checkbox label:after {
+.catalog_box_filter_body_check_checkbox label::after,
+.catalog_box_filter_body_el_checkbox.checkbox label::after {
   opacity: 0;
   content: '';
   position: absolute;
@@ -2541,13 +2543,16 @@ footer.catalog {
   border-top: none;
   border-right: none;
   transform: rotate(-45deg);
+  border-radius: 0;
 }
 
-.catalog_box_filter_body_check_checkbox input[type=checkbox]:checked+label:after {
+.catalog_box_filter_body_check_checkbox input[type=checkbox]:checked+label:after,
+.catalog_box_filter_body_el_checkbox.checkbox input[type=checkbox]:checked+label:after {
   opacity: 1;
 }
 
-.catalog_box_filter_body_check_checkbox input[type=checkbox]:checked+label {
+.catalog_box_filter_body_check_checkbox input[type=checkbox]:checked+label,
+.catalog_box_filter_body_el_checkbox.checkbox input[type=checkbox]:checked+label {
   background: #FF7801;
   border: 1px solid #FF7801;
 }
@@ -3833,7 +3838,7 @@ section.name {
     border-radius: 12px;
     padding: 12px;
     width: 200px;
-    z-index: 5;
+    z-index: 7;
     display: none;
   }
 
@@ -4237,6 +4242,10 @@ section.name {
 
   .pop_filter .catalog_box_filter {
     padding: 30px 20px 0 20px;
+  }
+
+  .catalog_box_wrap_bolder_scroll {
+    max-height: 800px;
   }
 }
 
