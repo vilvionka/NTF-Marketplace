@@ -2321,7 +2321,8 @@ footer.catalog {
   cursor: pointer;
   transition: .6s;
 }
-.catalog_box_filter_body_submit:hover{
+
+.catalog_box_filter_body_submit:hover {
   background: #342518;
 }
 
@@ -2355,6 +2356,7 @@ footer.catalog {
   border-radius: 8px;
   z-index: -1;
 }
+
 .button_grey:hover::after {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.56) 0%, rgba(255, 255, 255, 0.1) 100%);
 }
@@ -4227,6 +4229,14 @@ section.name {
 
   .name_network {
     justify-content: space-between;
+  }
+
+  .catalog_box_filter_name {
+    font-size: 30px;
+  }
+
+  .pop_filter .catalog_box_filter {
+    padding: 30px 20px 0 20px;
   }
 }
 
