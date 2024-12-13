@@ -179,3 +179,39 @@
     }
   })
 })();
+
+
+// more text animation 
+(() => {
+  let moreTextBox = document.querySelector('.js_more_text_box');
+  let moreTextBtn = document.querySelector('.js_more_text_btn');
+
+
+  if (moreTextBtn) {
+    moreTextBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      moreTextBox.classList.toggle('active');
+      if (moreTextBtn.classList.contains('active')) {
+        this.innerHTML = 'Collapse';
+      } else {
+        this.innerHTML = 'Show more';
+      }
+    })
+  }
+
+})();
+
+
+// copy text 
+(() => {
+  let copyBtn = document.querySelectorAll(".js_copy_btn");
+  for (let i = 0; i < copyBtn.length; i++) {
+    copyBtn[i].addEventListener("click", function () {
+      navigator.clipboard.writeText(this.previousElementSibling.innerText).then(function () {
+      }).catch(function (error) {
+      });
+    });
+  }
+
+
+})();
