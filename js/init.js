@@ -1,3 +1,46 @@
+$('.carusel_slider').slick({
+  dots: false,
+  infinite: true,
+  prevArrow: $('.slider_nav_prev'),
+  nextArrow: $('.slider_nav_next'),
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: false,
+  autoplay: false,
+});
+
+$(function () {
+  var Accordion = function (el, multiple) {
+    this.el = el || {};
+    // more then one submenu open?
+    this.multiple = multiple || false;
+
+    var accordionHeader = this.el.find('.carusel_slider_item_discription_head');
+    accordionHeader.on('click', {
+      el: this.el,
+      multiple: this.multiple
+    },
+      this.dropdown);
+  };
+
+  Accordion.prototype.dropdown = function (e) {
+    var $el = e.data.el,
+      $this = $(this),
+      //this is the ul.submenuItems
+      $next = $this.next();
+
+    $next.slideToggle();
+    $this.parent().toggleClass('open');
+
+    if (!e.data.multiple) {
+      //show only one menu at the same time
+      $el.find('.carusel_slider_item_discription_body').not($next).slideUp().parent().removeClass('open');
+    }
+  }
+
+  var accordion = new Accordion($('.carusel_slider_item_discription'), false);
+});
+
 $(function () {
   var Accordion = function (el, multiple) {
     this.el = el || {};
