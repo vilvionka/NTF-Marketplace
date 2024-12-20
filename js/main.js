@@ -51,9 +51,15 @@
     for (let i = 0; i < inp.length; i++) {
       inp[i].addEventListener('focus', function () {
         this.closest('.js_catalog_header_form_box').classList.add('active');
+        if (this.closest('.js_standartForm_left')) {
+          this.closest('.js_standartForm_left').classList.add('active');
+        }
       });
       inp[i].addEventListener('blur', function () {
         this.closest('.js_catalog_header_form_box').classList.remove('active');
+        if (this.closest('.js_standartForm_left')) {
+          this.closest('.js_standartForm_left').classList.remove('active');
+        }
       });
     }
   }
@@ -222,60 +228,224 @@
   let m = document.querySelector('#m');
   let s = document.querySelector('#s');
 
-  let dNext = document.querySelector('.day p');
-  let hNext = document.querySelector('.hour p');
-  let mNext = document.querySelector('.minute p');
-  let sNext = document.querySelector('.sec p');
+  // let dNext = document.querySelector('.day p');
+  // let hNext = document.querySelector('.hour p');
+  // let mNext = document.querySelector('.minute p');
+  // let sNext = document.querySelector('.sec p');
 
   let boxTime = document.querySelector('.js_carusel_time');
+  if (boxTime) {
+    let deadLine = boxTime.getAttribute('data-time');
+    let date = new Date(deadLine);
 
-  let deadLine = boxTime.getAttribute('data-time');
-  let date = new Date(deadLine);
 
-  function counts() {
-    let now = new Date();
-    gap = date - now;
 
-    let days = Math.floor(gap / 1000 / 60 / 60 / 24);
-    let hours = Math.floor(gap / 1000 / 60 / 60) % 24;
-    let minutes = Math.floor(gap / 1000 / 60) % 60;
-    let secundes = Math.floor(gap / 1000) % 60;
+    function counts() {
+      let now = new Date();
+      gap = date - now;
 
-    if (gap < 0) {
-      boxTime.classList.add('hidden');
-    } else {
-      d.innerHTML = days;
-      dNext.innerHTML = days - 1;
+      let days = Math.floor(gap / 1000 / 60 / 60 / 24);
+      let hours = Math.floor(gap / 1000 / 60 / 60) % 24;
+      let minutes = Math.floor(gap / 1000 / 60) % 60;
+      let secundes = Math.floor(gap / 1000) % 60;
 
-      h.innerHTML = hours;
-      let nextHours;
-      if(hours - 1 < 0){
-        nextHours = 23;
-      }else{
-        nextHours = hours - 1;
+      if (gap < 0) {
+        boxTime.classList.add('hidden');
+      } else {
+        d.innerHTML = days;
+        //   dNext.innerHTML = days - 1;
+
+        h.innerHTML = hours;
+        //    let nextHours;
+        //   if(hours - 1 < 0){
+        //     nextHours = 23;
+        //   }else{
+        //    nextHours = hours - 1;
+        //   }
+        //   hNext.innerHTML = nextHours;
+
+        m.innerHTML = minutes;
+        //  let nextMinute;
+        //  if(minutes - 1 < 0){
+        //    nextMinute = 59;
+        //  }else{
+        //    nextMinute = minutes - 1;
+        //  }
+        //  mNext.innerHTML = nextMinute;
+
+        s.innerHTML = secundes;
+        //  let nextSec;
+        //  if(secundes - 1 < 0){
+        //    nextSec = 59;
+        //  }else{
+        //    nextSec = secundes - 1;
+        // }
+        //  sNext.innerHTML = nextSec;
       }
-      hNext.innerHTML = nextHours;
+    }
 
-      m.innerHTML = minutes;
-      let nextMinute;
-      if(minutes - 1 < 0){
-        nextMinute = 59;
-      }else{
-        nextMinute = minutes - 1;
-      }
-      mNext.innerHTML = nextMinute;
+    setInterval(counts, 1000);
+  }
+})();
 
-      s.innerHTML = secundes;
-      let nextSec;
-      if(secundes - 1 < 0){
-        nextSec = 59;
-      }else{
-        nextSec = secundes - 1;
-      }
-      sNext.innerHTML = nextSec;
+// tab form
+(() => {
+  let tabBtn = document.querySelectorAll(".js_tab_btn");
+  let tabBox = document.querySelectorAll(".js_tab_box");
+
+  for (let i = 0; i < tabBtn.length; i++) {
+    tabBtn[i].addEventListener('click', function () {
+      tabBtn.forEach(el => {
+        el.classList.remove('active');
+      });
+      this.classList.add('active');
+      tabBox.forEach(el => {
+        el.classList.remove('active')
+      });
+      tabBox[i].classList.add('active');
+    })
+  }
+
+})();
+
+// add input
+(() => {
+  let btnInput = document.querySelectorAll('.js_add_btn');
+  let boxInput = document.querySelectorAll('.js_add_box');
+
+  if (btnInput) {
+    for (let i = 0; i < btnInput.length; i++) {
+      btnInput[i].addEventListener('click', function () {
+        let boxEl = document.createElement('div');
+        let boxEl2 = document.createElement('div');
+        let spanEl = document.createElement('span');
+        let inpEl = document.createElement('input');
+        let iEl = document.createElement('i');
+
+        let spanElText = document.createTextNode("Type");
+        spanEl.appendChild(spanElText);
+
+        inpEl.setAttribute("placeholder", "Meaning");
+        inpEl.setAttribute("type", "text");
+
+        boxEl.classList.add('standartForm_box_item_add_box_item', 'border_top_botoom', 'js_catalog_header_form_box');
+        boxEl2.classList.add('standartForm_box_item_add_box_item', 'border_left_right', 'js_standartForm_left');
+        inpEl.classList.add('js_catalog_header_form_box_input');
+        boxEl2.appendChild(spanEl);
+        boxEl2.appendChild(inpEl);
+        boxEl2.appendChild(iEl);
+        boxEl.appendChild(boxEl2);
+        this.previousElementSibling.appendChild(boxEl);
+      })
     }
   }
 
-  setInterval(counts, 1000);
+  if (boxInput) {
+    for (let i = 0; i < boxInput.length; i++) {
+      boxInput[i].addEventListener('click', function (e) {
+        const target = e.target.closest('i');
+        if (!target) return;
+        target.closest('.js_catalog_header_form_box').classList.add('none');
+      })
+    }
+  }
+})();
 
+// add input link
+(() => {
+  let btnInput = document.querySelectorAll('.js_add_btn_link');
+  let boxInput = document.querySelectorAll('.js_add_box');
+
+  if (btnInput) {
+    for (let i = 0; i < btnInput.length; i++) {
+      btnInput[i].addEventListener('click', function () {
+        let boxEl = document.createElement('div');
+        let boxEl2 = document.createElement('div');
+        let inpEl2 = document.createElement('input');
+        let inpEl = document.createElement('input');
+        let iEl = document.createElement('i');
+
+        inpEl2.setAttribute("placeholder", "name");
+        inpEl2.setAttribute("type", "text");
+
+        inpEl.setAttribute("placeholder", "You link");
+        inpEl.setAttribute("type", "text");
+
+        boxEl.classList.add('standartForm_box_item_add_box_item', 'border_top_botoom', 'js_catalog_header_form_box');
+        boxEl2.classList.add('standartForm_box_item_add_box_item', 'border_left_right', 'js_standartForm_left');
+        inpEl2.classList.add('standartForm_box_item_add_name');
+        inpEl.classList.add('standartForm_box_item_add_link');
+        boxEl2.appendChild(inpEl2);
+        boxEl2.appendChild(inpEl);
+        boxEl2.appendChild(iEl);
+        boxEl.appendChild(boxEl2);
+        this.previousElementSibling.appendChild(boxEl);
+      })
+    }
+  }
+
+  if (boxInput) {
+    for (let i = 0; i < boxInput.length; i++) {
+      boxInput[i].addEventListener('click', function (e) {
+        const target = e.target.closest('i');
+        if (!target) return;
+        target.closest('.js_catalog_header_form_box').classList.add('none');
+      })
+    }
+  }
+})();
+
+// support too drop files
+(() => {
+
+  let boxDrop = document.querySelectorAll('.js_download_box');
+  //let fileLabelText = document.querySelector('.js_support_complaint_box_fiel1');
+  let inpAddFile = document.querySelectorAll('.js_download_inp');
+  let droppedFiles;
+
+  if (boxDrop) {
+    for (let i = 0; i < boxDrop.length; i++) {
+      boxDrop[i].addEventListener('dragover', fileHover);
+      boxDrop[i].addEventListener('dragenter', fileHover);
+      boxDrop[i].addEventListener('dragleave', fileHoverEnd);
+      boxDrop[i].addEventListener('drop', function(e){
+        fileHoverEnd(e);
+       let el = this.querySelector('span');
+        droppedFiles = e.dataTransfer.files;
+        showFiles(droppedFiles, el);
+      });
+    }
+    for (let i = 0; i < inpAddFile.length; i++) {
+      inpAddFile[i].addEventListener('change', function(e){
+        let el = this.closest('.js_download_box').querySelector('span')
+        droppedFiles = e.target.files;
+        showFiles(droppedFiles, el);
+      });
+    }
+    function overrideDefault(e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
+    function fileHover(e) {
+      overrideDefault(e);
+      //this.classList.add('active');
+    }
+
+    function fileHoverEnd(e) {
+      overrideDefault(e);
+      //this.classList.remove('active');
+    }
+   
+
+   
+
+    function showFiles(files, el) {
+      if (files.length > 1) {
+        el.innerText = files.length + ' ' + 'файла загружено';
+      } else {
+        el.innerText = files[0].name;
+      }
+    }
+  }
 })();

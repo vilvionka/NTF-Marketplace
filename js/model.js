@@ -76,7 +76,7 @@ function init() {
 
   window.addEventListener('resize', onWindowResize);
 
- 
+
 
 }
 
@@ -115,18 +115,19 @@ function render() {
 
   pointLight.position.x = 2000 * Math.cos(r);
   pointLight.position.z = 2000 * Math.sin(r);
-
-  model.rotation.y -= 0.006;
+  if (model) {
+    model.rotation.y -= 0.006;
+  }
   r += 0.01;
 
   renderer.render(scene, camera);
-  if(document.documentElement.clientWidth < 650 && model != null){
+  if (document.documentElement.clientWidth < 650 && model != null) {
     model.scale.set(20, 20, 10)
   }
-  if(document.documentElement.clientWidth < 500 && model != null){
+  if (document.documentElement.clientWidth < 500 && model != null) {
     model.scale.set(13, 14, 5)
   }
-  if(document.documentElement.clientWidth < 425 && model != null){
+  if (document.documentElement.clientWidth < 425 && model != null) {
     model.scale.set(7, 12, 5)
   }
 
