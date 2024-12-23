@@ -186,6 +186,51 @@
   })
 })();
 
+// lk balance animation 
+(() => {
+  let waletBtn = document.querySelector('.js_balance_btn');
+  let waletBox = document.querySelector('.js_balance_walet');
+
+
+  if (waletBtn) {
+    waletBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      waletBox.classList.toggle('active');
+    })
+  }
+  document.addEventListener('click', (e) => {
+    const lkEl = e.composedPath().includes(waletBtn);
+    const gambLk1 = e.composedPath().includes(waletBox);
+    if (waletBtn) {
+      if (!lkEl && !gambLk1) {
+        waletBox.classList.remove('active');
+        waletBtn.classList.remove('active');
+      }
+    }
+  })
+})();
+
+// lk_switch animation
+(() => {
+  let switchBtn = document.querySelector('.js_switch_btn');
+  let switchMarkers = document.querySelectorAll('.js_personal_marker');
+
+
+  if (switchBtn) {
+    switchBtn.addEventListener('click', function () {
+      this.classList.toggle('active');
+      switchMarkers.forEach(el => {
+        if (el.classList.contains('active')) {
+          el.classList.remove('active')
+        } else {
+          el.classList.add('active')
+        }
+      });
+    })
+  }
+
+})();
+
 
 // more text animation 
 (() => {
@@ -307,6 +352,38 @@
   }
 
 })();
+// personal sort animation
+(() => {
+  let sortBtn = document.querySelectorAll(".js_personal_sort");
+
+  if (sortBtn) {
+    for (let i = 0; i < sortBtn.length; i++) {
+      sortBtn[i].addEventListener('click', function () {
+        sortBtn.forEach(el => {
+          el.classList.remove('active');
+        });
+        this.classList.add('active')
+      })
+    }
+  }
+
+})();
+// personal sort animation
+(() => {
+  let sortBtn = document.querySelectorAll(".js_personal_sort_new");
+
+  if (sortBtn) {
+    for (let i = 0; i < sortBtn.length; i++) {
+      sortBtn[i].addEventListener('click', function () {
+        sortBtn.forEach(el => {
+          el.classList.remove('active');
+        });
+        this.classList.add('active')
+      })
+    }
+  }
+
+})();
 
 // add input
 (() => {
@@ -408,15 +485,15 @@
       boxDrop[i].addEventListener('dragover', fileHover);
       boxDrop[i].addEventListener('dragenter', fileHover);
       boxDrop[i].addEventListener('dragleave', fileHoverEnd);
-      boxDrop[i].addEventListener('drop', function(e){
+      boxDrop[i].addEventListener('drop', function (e) {
         fileHoverEnd(e);
-       let el = this.querySelector('span');
+        let el = this.querySelector('span');
         droppedFiles = e.dataTransfer.files;
         showFiles(droppedFiles, el);
       });
     }
     for (let i = 0; i < inpAddFile.length; i++) {
-      inpAddFile[i].addEventListener('change', function(e){
+      inpAddFile[i].addEventListener('change', function (e) {
         let el = this.closest('.js_download_box').querySelector('span')
         droppedFiles = e.target.files;
         showFiles(droppedFiles, el);
@@ -436,9 +513,9 @@
       overrideDefault(e);
       //this.classList.remove('active');
     }
-   
 
-   
+
+
 
     function showFiles(files, el) {
       if (files.length > 1) {
