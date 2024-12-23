@@ -7235,6 +7235,9 @@ input[type="number"]::-webkit-inner-spin-button {
   .personal_switchBox_table {
     flex-wrap: wrap;
   }
+  .personal_switchBox_table .personal_switchBox_table_item:nth-child(1){
+    margin-top: 0px;
+  }
 
   .personal_switchBox_table_item {
     width: 100%;
