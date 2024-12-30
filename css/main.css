@@ -1490,6 +1490,7 @@ footer {
   justify-content: center;
   align-items: center;
   position: relative;
+  cursor: pointer;
 }
 
 .catalog_header_connect_box {
