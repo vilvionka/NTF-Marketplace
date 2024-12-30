@@ -1,13 +1,4 @@
-$('.carusel_slider').slick({
-  dots: false,
-  infinite: true,
-  prevArrow: $('.slider_nav_prev'),
-  nextArrow: $('.slider_nav_next'),
-  speed: 300,
-  slidesToShow: 1,
-  adaptiveHeight: false,
-  autoplay: false,
-});
+
 
 $(function () {
   var Accordion = function (el, multiple) {

@@ -214,12 +214,20 @@
 (() => {
   let switchBtn = document.querySelector('.js_switch_btn');
   let switchMarkers = document.querySelectorAll('.js_personal_marker');
+  let tabItems = document.querySelectorAll('.js_tabPersonal_item')
 
 
   if (switchBtn) {
     switchBtn.addEventListener('click', function () {
       this.classList.toggle('active');
       switchMarkers.forEach(el => {
+        if (el.classList.contains('active')) {
+          el.classList.remove('active')
+        } else {
+          el.classList.add('active')
+        }
+      });
+      tabItems.forEach(el => {
         if (el.classList.contains('active')) {
           el.classList.remove('active')
         } else {
@@ -256,6 +264,18 @@
 // copy text 
 (() => {
   let copyBtn = document.querySelectorAll(".js_copy_btn");
+  for (let i = 0; i < copyBtn.length; i++) {
+    copyBtn[i].addEventListener("click", function () {
+      navigator.clipboard.writeText(this.previousElementSibling.innerText).then(function () {
+      }).catch(function (error) {
+      });
+    });
+  }
+
+})();
+// copy text 
+(() => {
+  let copyBtn = document.querySelectorAll(".js_connect_copy");
   for (let i = 0; i < copyBtn.length; i++) {
     copyBtn[i].addEventListener("click", function () {
       navigator.clipboard.writeText(this.previousElementSibling.innerText).then(function () {
@@ -526,3 +546,153 @@
     }
   }
 })();
+
+
+// lk btn activate unstake
+(() => {
+  let unstakeBtn = document.querySelectorAll('.js_unstake');
+  let unstakeBox = document.querySelector('.js_pop_clam');
+  let unstaleClose = document.querySelector('.js_pop_clam_close');
+
+
+  if (unstakeBtn) {
+    for (let i = 0; i < unstakeBtn.length; i++) {
+      unstakeBtn[i].addEventListener('click', function () {
+        unstakeBox.classList.add('active');
+      })
+    }
+  }
+  if (unstaleClose) {
+    unstaleClose.addEventListener('click', function () {
+      unstakeBox.classList.remove('active');
+    })
+  }
+
+
+})();
+
+// lk btn activate refund
+(() => {
+  let refundBtn = document.querySelectorAll('.js_refund');
+  let refundBox = document.querySelector('.js_pop_refund');
+  let refundClose = document.querySelector('.js_pop_refund_close');
+
+
+  if (refundBtn) {
+    for (let i = 0; i < refundBtn.length; i++) {
+      refundBtn[i].addEventListener('click', function () {
+        refundBox.classList.add('active');
+      })
+    }
+  }
+  if (refundClose) {
+    refundClose.addEventListener('click', function () {
+      refundBox.classList.remove('active');
+    })
+  }
+
+})();
+
+// lk btn activate pay
+(() => {
+  let payBtn = document.querySelectorAll('.js_pay');
+  let payBox = document.querySelector('.js_pop_pay');
+  let payClose = document.querySelector('.js_pop_pay_close');
+
+
+  if (payBtn) {
+    for (let i = 0; i < payBtn.length; i++) {
+      payBtn[i].addEventListener('click', function () {
+        payBox.classList.add('active');
+      })
+    }
+  }
+  if (payClose) {
+    payClose.addEventListener('click', function () {
+      payBox.classList.remove('active');
+    })
+  }
+
+})();
+
+// lk btn activate coming
+(() => {
+  let comingBtn = document.querySelectorAll('.js_coming');
+  let comingBox = document.querySelector('.js_pop_coming');
+  let comingClose = document.querySelector('.js_pop_coming_close');
+
+
+  if (comingBtn) {
+    for (let i = 0; i < comingBtn.length; i++) {
+      comingBtn[i].addEventListener('click', function () {
+        comingBox.classList.add('active');
+      })
+    }
+  }
+  if (comingClose) {
+    comingClose.addEventListener('click', function () {
+      comingBox.classList.remove('active');
+    })
+  }
+
+})();
+
+
+// connect wallet
+(() => {
+  let connectBtn = document.querySelectorAll('.js_connect');
+  let connectBox = document.querySelector('.js_pop_connect');
+  let connectClose = document.querySelector('.js_pop_connect_close');
+
+
+  if (connectBtn) {
+    for (let i = 0; i < connectBtn.length; i++) {
+      connectBtn[i].addEventListener('click', function () {
+        connectBox.classList.add('active');
+      })
+    }
+  }
+  if (connectClose) {
+    connectClose.addEventListener('click', function () {
+      connectBox.classList.remove('active');
+    })
+  }
+
+})();
+
+// wallet language mobile
+(() => {
+  let qrBtn = document.querySelector('.js_pop_qr_mobile');
+  let qrBox = document.querySelector('.js_connect_qr');
+  
+  if (qrBtn) {
+      qrBtn.addEventListener('click', function () {
+        qrBox.classList.toggle('active');
+        this.classList.toggle('active')
+      })
+  }
+
+})();
+
+// language
+(() => {
+  let languageBtn = document.querySelector('.js_catalog_header_connect');
+  let languageBox = document.querySelector('.js_catalog_header_connect_box');
+  
+  if (languageBtn) {
+      languageBtn.addEventListener('click', function () {
+        languageBox.classList.add('active');
+      })
+  }
+  document.addEventListener('click', (e) => {
+    const lkEl = e.composedPath().includes(languageBtn);
+    const gambLk1 = e.composedPath().includes(languageBox);
+    if (languageBtn) {
+      if (!lkEl && !gambLk1) {
+        languageBox.classList.remove('active');
+      }
+    }
+  })
+
+})();
+
