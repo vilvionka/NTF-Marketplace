@@ -6942,7 +6942,7 @@ input[type="number"]::-webkit-inner-spin-button {
   .header_btn_left,
   .header_btn_right {
     max-width: none;
-    width: calc(50% - 4px);
+    width: calc(50% - 25px);
     height: 72px;
   }
 
@@ -6961,11 +6961,12 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
   .header_btn_right_user {
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     margin-right: 0px;
     position: absolute;
-    top: -2px;
+    top: 17px;
+    left: -44px;
   }
 
   .header_btn_right_user img {
@@ -6979,7 +6980,7 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
   .header_btn_right .header_btn_box:nth-child(1) .header_btn_item {
-    width: calc(100% - 40px);
+    width: calc(100% - 0px);
   }
 
   .header_btn_left a span,
@@ -7463,7 +7464,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
   .header_btn_right_box .header_btn_box,
   .header_btn_right_box .header_btn_item {
-    height: 72px;
+    height: 70px;
   }
 
   .tabPersonal_item.margin {
