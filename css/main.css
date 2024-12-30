@@ -1492,6 +1492,11 @@ footer {
   position: relative;
   cursor: pointer;
 }
+.catalog_header_connect img{
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+}
 
 .catalog_header_connect_box {
   position: absolute;
@@ -1569,6 +1574,7 @@ footer {
   height: 100%;
   border-radius: 50%;
   transition: .6s;
+  pointer-events: none;
 }
 
 .catalog_header_connect::after,
@@ -1583,6 +1589,7 @@ footer {
   height: 100%;
   border-radius: 50%;
   transition: .6s;
+  pointer-events: none;
 }
 
 .catalog_header_connect:hover::before,
@@ -6015,6 +6022,20 @@ input[type="number"]::-webkit-inner-spin-button {
 .popBox_telegram:hover i {
   background-image: url(../img/icon/telegram_hover.svg);
 }
+.menu_pop_accordion_body{
+  display: none;
+  margin-top: 10px;
+  width: 150px;
+}
+.menu_pop_accordion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.menu_pop_accordion_body .catalog_header_connect_box_item:last-child::after{
+  display: none;
+}
 
 /*-----------------------------------------------media start-------------------------------------*/
 @media (max-width: 1270px) {
@@ -7904,7 +7925,7 @@ input[type="number"]::-webkit-inner-spin-button {
     display: none;
   }
 
-  .popBox_close {
+  .popBox_close, .popBox_qr {
     top: 12px;
     right: 12px;
     width: 30px;
