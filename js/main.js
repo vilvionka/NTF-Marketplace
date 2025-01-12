@@ -293,17 +293,10 @@
   let m = document.querySelector('#m');
   let s = document.querySelector('#s');
 
-  // let dNext = document.querySelector('.day p');
-  // let hNext = document.querySelector('.hour p');
-  // let mNext = document.querySelector('.minute p');
-  // let sNext = document.querySelector('.sec p');
-
   let boxTime = document.querySelector('.js_carusel_time');
   if (boxTime) {
     let deadLine = boxTime.getAttribute('data-time');
     let date = new Date(deadLine);
-
-
 
     function counts() {
       let now = new Date();
@@ -318,37 +311,79 @@
         boxTime.classList.add('hidden');
       } else {
         d.innerHTML = days;
-        //   dNext.innerHTML = days - 1;
-
         h.innerHTML = hours;
-        //    let nextHours;
-        //   if(hours - 1 < 0){
-        //     nextHours = 23;
-        //   }else{
-        //    nextHours = hours - 1;
-        //   }
-        //   hNext.innerHTML = nextHours;
-
         m.innerHTML = minutes;
-        //  let nextMinute;
-        //  if(minutes - 1 < 0){
-        //    nextMinute = 59;
-        //  }else{
-        //    nextMinute = minutes - 1;
-        //  }
-        //  mNext.innerHTML = nextMinute;
-
         s.innerHTML = secundes;
-        //  let nextSec;
-        //  if(secundes - 1 < 0){
-        //    nextSec = 59;
-        //  }else{
-        //    nextSec = secundes - 1;
-        // }
-        //  sNext.innerHTML = nextSec;
       }
     }
+    setInterval(counts, 1000);
+  }
+})();
 
+// time dead line animation
+(() => {
+  let d = document.querySelector('#d2');
+  let h = document.querySelector('#h2');
+  let m = document.querySelector('#m2');
+  let s = document.querySelector('#s2');
+
+  let boxTime = document.querySelector('.js_carusel_time2');
+  if (boxTime) {
+    let deadLine = boxTime.getAttribute('data-time');
+    let date = new Date(deadLine);
+
+    function counts() {
+      let now = new Date();
+      gap = date - now;
+
+      let days = Math.floor(gap / 1000 / 60 / 60 / 24);
+      let hours = Math.floor(gap / 1000 / 60 / 60) % 24;
+      let minutes = Math.floor(gap / 1000 / 60) % 60;
+      let secundes = Math.floor(gap / 1000) % 60;
+
+      if (gap < 0) {
+        boxTime.classList.add('hidden');
+      } else {
+        d.innerHTML = days;
+        h.innerHTML = hours;
+        m.innerHTML = minutes;
+        s.innerHTML = secundes;
+      }
+    }
+    setInterval(counts, 1000);
+  }
+})();
+
+// time dead line animation
+(() => {
+  let d = document.querySelector('#d3');
+  let h = document.querySelector('#h3');
+  let m = document.querySelector('#m3');
+  let s = document.querySelector('#s3');
+
+  let boxTime = document.querySelector('.js_carusel_time3');
+  if (boxTime) {
+    let deadLine = boxTime.getAttribute('data-time');
+    let date = new Date(deadLine);
+
+    function counts() {
+      let now = new Date();
+      gap = date - now;
+
+      let days = Math.floor(gap / 1000 / 60 / 60 / 24);
+      let hours = Math.floor(gap / 1000 / 60 / 60) % 24;
+      let minutes = Math.floor(gap / 1000 / 60) % 60;
+      let secundes = Math.floor(gap / 1000) % 60;
+
+      if (gap < 0) {
+        boxTime.classList.add('hidden');
+      } else {
+        d.innerHTML = days;
+        h.innerHTML = hours;
+        m.innerHTML = minutes;
+        s.innerHTML = secundes;
+      }
+    }
     setInterval(counts, 1000);
   }
 })();
@@ -693,6 +728,55 @@
       }
     }
   })
+
+})();
+
+
+// calculator
+(() => {
+  let plus = document.querySelector('#plus');
+  let minus = document.querySelector('#minus');
+  let sum = document.querySelector('#sum')
+  
+  if (plus) {
+      plus.addEventListener('click', function () {
+        let a = sum.innerHTML;
+        sum.innerHTML = Number(a) + 1;
+      })
+  }
+
+  if (minus) {
+    minus.addEventListener('click', function () {
+      let a = sum.innerHTML;
+      sum.innerHTML = Number(a) - 1;
+      if(Number(a) - 1 < 1 ){
+        sum.innerHTML = 1;
+      }
+    })
+}
+})();
+
+
+// buy tab
+(() => {
+  let sortBtn = document.querySelectorAll(".js_personal_tab");
+  let tabBox = document.querySelectorAll('.js_card_buy_bottom_tab')
+
+  if (sortBtn) {
+    for (let i = 0; i < sortBtn.length; i++) {
+      sortBtn[i].addEventListener('click', function () {
+        sortBtn.forEach(el => {
+          el.classList.remove('active');
+        });
+        tabBox.forEach(el => {
+          el.classList.remove('active');
+        });
+        
+        tabBox[i].classList.add('active');
+        this.classList.add('active');
+      })
+    }
+  }
 
 })();
 

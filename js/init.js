@@ -607,3 +607,21 @@ $(function () {
 
   var accordion = new Accordion($('.menu_pop_accordion'), false);
 });
+
+
+$('.card_box_slider_big').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: false,
+  asNavFor: '.card_box_slider_small'
+});
+$('.card_box_slider_small').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  asNavFor: '.card_box_slider_big',
+  dots: false,
+  centerMode: false,
+  arrows: false,
+  focusOnSelect: true
+});
